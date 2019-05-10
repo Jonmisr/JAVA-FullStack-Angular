@@ -22,7 +22,7 @@ public class VueloCarga extends Vuelo {
 	}
 
 	private void faltaEspacio(double size) {
-		System.err.println("No Se Pudo Agregar " + size + " ,Supera el Espacio Maximo " + this.getEspacioMaximoDeCarga());
+		System.err.println("No Se Pudo Agregar " + size + ", Supera el Espacio Maximo " + this.getEspacioMaximoDeCarga());
 	}
 
 	private boolean espacioDeCargaDisponible(double tamanio) {

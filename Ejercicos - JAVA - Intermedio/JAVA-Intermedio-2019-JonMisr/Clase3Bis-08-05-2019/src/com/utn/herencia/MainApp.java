@@ -8,25 +8,48 @@ public class MainApp {
 		
 		ArrayList<Pasajero> pasajeros = new ArrayList<>();
 		
-		Pasajero pasajero1 = new Pasajero();
-		Pasajero pasajero2 = new Pasajero(1);
-		Pasajero pasajero3 = new Pasajero(5);
-		Pasajero pasajero4 = new Pasajero(1, 9);
-		Pasajero pasajero5 = new Pasajero(4, 6);
+		Pasajero pasajero2 = new Pasajero(1, "Juan");
+		Pasajero pasajero3 = new Pasajero(5, "Nicolas");
+		Pasajero pasajero4 = new Pasajero(1, 9, "Raul");
+		Pasajero pasajero5 = new Pasajero(4, 6, "Pepe");
 		
-		pasajeros.add(pasajero1);
 		pasajeros.add(pasajero2);
 		pasajeros.add(pasajero3);
 		pasajeros.add(pasajero4);
 		pasajeros.add(pasajero5);
 		
 		VueloCarga vuelo1 = new VueloCarga();
-		vuelo1.agregarPaquete(10, 20, 300);
-		System.out.println(vuelo1.getEspacioDeCargaUsado());
+		vuelo1.agregarPaquete(100, 20, 3000);
 		
-		for(Pasajero unPasajero: pasajeros) {
-		System.out.println(unPasajero.toString());
-		}
+		Pasajero.mostrarListaDePasajeros(pasajeros);
+		
+		ArrayList<Vuelo> flotas = new ArrayList<>();
+		Vuelo flota1 = new Vuelo();
+		Vuelo flota2 = new VueloCarga();
+		Vuelo flota3 = new Vuelo();
+		Vuelo flota4 = new VueloCarga();
+
+		flotas.add(flota1);	
+		flotas.add(flota2);
+		flotas.add(flota3);
+		flotas.add(flota4);
+		
+		flota1.agregarPasajero(pasajero2);
+		flota1.agregarPasajero(pasajero3);
+		flota1.agregarPasajero(pasajero4);
+		flota1.agregarPasajero(pasajero5);
+		
+		System.out.println(flotas.get(0).getAsientos());
+		System.out.println(flotas.get(1).getAsientos());
+		
+		ArrayList<Object> objetos = new ArrayList<>();
+		Object objeto = new Object();
+		
+		objetos.add(flota1);
+		objetos.add(flota2);
+		objetos.add(pasajero2);
+		objetos.add(objeto);
+		
 	}
 
 }

@@ -13,17 +13,19 @@ public class Pasajero {
 	
 	public Pasajero() {}
 	
-	public Pasajero(int bolsos) {
+	public Pasajero(int bolsos, String name) {
 		
 		this(bolsos > 2 ? 25.0d : 50.0d);
 		this.bolsos = bolsos;
+		this.name = name;
 		totalAPagar = bolsos* tarifaPorBolso;
 		totalEquipaje = bolsos;
 	}
 
-	public Pasajero(int bolsos, int bolsosPagos) {
+	public Pasajero(int bolsos, int bolsosPagos, String name) {
 		this(bolsos);
 		this.bolsosPagos = bolsosPagos;
+		this.name = name;
 		totalEquipaje = bolsos + bolsosPagos;
 		totalAPagar = bolsos * tarifaPorBolso;
 	}

@@ -1,31 +1,30 @@
 package com.utn.herencia;
 
-public abstract class Vuelo {
+public class Vuelo {
 
 	public int numeroVuelo;
 	public int pasajeros;
 	public char claseVuelo;
 	public boolean[] asientosDisponibles;
-
+	
 	// Inicializador De Bloque
 	{
 		asientosDisponibles = new boolean[150];
-		for (int i = 0; i < getAsientos(); i++) {
+		for (int i = 0; i < asientosDisponibles.length; i++) {
 			asientosDisponibles[i] = true;
 		}
 	}
 
-	public Vuelo() {
-	}
+	public Vuelo() {}
 
 	public Vuelo(char claseVuelo) {
 		this.claseVuelo = claseVuelo;
 	}
-
+	
 	public Vuelo(int numeroDeVuelo) {
 		this.numeroVuelo = numeroDeVuelo;
 	}
-
+	
 	public void agregarPasajero(Pasajero unPasajero) {
 
 		if (asientoDisponible()) {
@@ -47,8 +46,12 @@ public abstract class Vuelo {
 	public int getAsientos() {
 		return getAsiento();
 	}
+	
+	public int getAsientosDisponible() {
+		return 150;
+	}
 
 	public int getAsiento() {
-		return 150;
+		return getAsientosDisponible();
 	}
 }
