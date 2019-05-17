@@ -3,7 +3,7 @@ package com.utn.ejercicio;
 import java.util.ArrayList;
 
 public class AppMain {
-
+	
 	public static void main(String[] args) {
 
 		Multimedia unMultimedia = new Multimedia("Memories", "Neffex", Formato.MP3, "3:20");
@@ -44,8 +44,12 @@ public class AppMain {
 		
 		System.out.println(listMultimedias.toString());
 		
-		System.out.println(listMultimedias.get(4));
-	}
-
+		//System.out.println(listMultimedias.get(4));
+	
 //-----------------------------------------------------------------------------------------------------------------// Final
+
+		Disco unDisco = new Disco("Dangerous", "Neffex", Formato.CDAUDIO, "2:32", Genero.ROCK);
+
+		System.out.println(unDisco.toString());
+	}
 }
