@@ -1,6 +1,5 @@
 package modelo.dao;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,7 +22,7 @@ import modelo.conexion.PersonaVO;
 
 public class PersonaDAO {
 
-	public void registraPersona(PersonaVO unaPersona) {
+	public void registrarPersona(PersonaVO unaPersona) {
 
 		Conexion connection = new Conexion();
 
@@ -41,9 +40,7 @@ public class PersonaDAO {
 			System.out.println(e.getMessage());
 			System.err.println("No Se Pudo Registrar La Persona En La Base");
 
-		} finally {
-			connection.desconectar();
-		}
+		} 
 	}
 
 	public PersonaVO buscarPersona(int codigo) {
@@ -81,22 +78,46 @@ public class PersonaDAO {
 		}
 	}
 	
-	public void eliminarPersona(int codigo) {
+	public void modificarPersona(PersonaVO miPersona) {
 		
 		Conexion connection = new Conexion();
 		
 		try {
 			
+			String consulta = "UPDATE persona SET id= ?, nombre= ?, edad= ?, profesion= ?, telefono= ? WHERE id = ?";
+			PreparedStatement estatuto = connection.getConnection().prepareStatement(consulta);
+			
+			estatuto.setInt(1, miPersona.getIdPersona());
+			estatuto.setString(2, miPersona.getNombrePersona());
+			estatuto.setInt(3, miPersona.getEdadPersona());
+			estatuto.setString(4, miPersona.getProfesionPersona());
+			estatuto.setInt(5, miPersona.getTelefonoPersona());
+			estatuto.setInt(6, miPersona.getIdPersona());
+			
+			estatuto.executeUpdate();
+			
+			System.out.println("Se Actualizo La Persona " + miPersona.getIdPersona() + " " + miPersona.getNombrePersona());
+			
+		} catch (SQLException e) {
+			System.err.println("No Se Pudo Modificar La Persona " + miPersona.getIdPersona() + " " + miPersona.getNombrePersona());
+		}
+
+	}
+	
+	public void eliminarPersona(int codigo) {
+		
+		Conexion connection = new Conexion();
+		
+		try {
+
 			Statement estatuto = connection.getConnection().createStatement();
 			estatuto.executeUpdate("DELETE FROM persona WHERE id = '" + codigo + "'");
 			System.out.println("Se Elimino El id = " + codigo + " Correctamente");
 			estatuto.close();
-			
+
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			System.err.println("No Se Pudo Eliminar");
-		} finally {
-			connection.desconectar();
-		}
+		} 
 	}
 }
