@@ -1,0 +1,27 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    //Nos Dice Que Comando Ejecutara 
+    //Solo Funciona Con NPM, Sino Se Pone Toda La Ruta
+    "command": "tsc",
+    //Es Un Comando De Shell O Cmd
+    "isShellCommand": true,
+    //No Debe Molestar O Abrir La Ventada De Resultados
+    //De La Tarea A Menos Que Se Haya Que Informar Un Error
+    "showOutput": "silent",
+
+    //Matriz De Valores Que Se Deben Pasar Al Comando TSC Si Lo
+    //Usaramos Desde El CMD
+    "args": ["--target", "ES5", //Especificamos Que Queremos Que El Compilado Genere ES5(3.5.6)
+            "--outDir", "js",   //Especifico Donde Quiero Que Se Deposite Mi Codigo Compilado
+            "--sourceMap",      //Esto Le Dice Al Compilador Que Genere Mapas De Origen Para Todo Los
+                                //Archivos Que Compila
+                                //Mapas De Origen:
+                                //Esto Creara Una Asignacion Entre El Codigo En El Archivo Original TS Y El Codigo
+                                //Compilado En El Archivo .JS Esto Sera Util Cuando Se Realice El Debug.
+                                //Ya Que Mi Aplicacion Ejecutara El .JS Y Queremos Recorrer El .TS
+            "--watch",          //Para Que El Compilador Se Ejecute En Segundo Plano Y Compile Automaticamente Cuando Detecte Cambios En El Codigo TS
+            "test.ts",],          //Lista De Archivos Para Compilar
+            "problemMatcher": "$tsc"
+        }
