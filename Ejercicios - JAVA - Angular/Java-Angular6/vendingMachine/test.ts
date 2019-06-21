@@ -8,6 +8,28 @@
 // console.log("hola");
 // console.log("pepe");
 
+//Node JS (Server JS))
+//NPM & YARN SPA(Single Page Applicattion)
+//CLI -> npm install -g @angular/cli
+//Crear Carpeta -> ng new bike-ui --routing
+//ng serve || npm start
+//Browser localhost:4200
+//proxy.conf.json
+//Agregar El Proxy Al Package.json
+//Package.json -> Es Como Maven
+//Crear Service -> ng g service service/bike
+
+//Yarn Manejo De Dependencias De Angular
+//npm install -g @angular/cli Para Instalar El Command Line Interface
+//ng --version Para Ver Las Caracteristicas Del CLI
+//ng new bike-ui --routing (Este Comando Crea Una Aplicacion)
+//cd bike-ui
+//code .
+// ng serve || npm start
+
+import{Category} from './js/enum';
+import{Book} from './js/IBook';
+
 function getAllBooks(){
     //Creamos Un Array De Libros, Cada Libro Con 4 Propiedades
     let books = [
@@ -74,8 +96,7 @@ function getBooksTitlesByCategory(categoryFilter: Category) : Array<string> {
     return filteredTitles;
 }
 
-//Creo Un Enum
-enum Category{BIOGRAFIA, POESIA, FICCION, HISTORIA, INFANTILES}
+
 
 function logBooksTitles(titles : string[]) : void {
     for(let title of titles){

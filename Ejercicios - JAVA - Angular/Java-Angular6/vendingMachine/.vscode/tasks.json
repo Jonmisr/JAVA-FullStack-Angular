@@ -7,6 +7,9 @@
     "command": "tsc",
     //Es Un Comando De Shell O Cmd
     "isShellCommand": true,
+    //Agrego Module De Node JS Llamado Commons
+    //Para Poder Modularizar Nuestra App
+    "--module": "commonsjs",
     //No Debe Molestar O Abrir La Ventada De Resultados
     //De La Tarea A Menos Que Se Haya Que Informar Un Error
     "showOutput": "silent",
