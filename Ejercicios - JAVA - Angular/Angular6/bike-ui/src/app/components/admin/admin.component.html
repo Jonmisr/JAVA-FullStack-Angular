@@ -1,0 +1,37 @@
+<!-- actualizamos nuestro html -->
+<div class="container">
+  <!-- Tabla Basica -->
+  <table class="table table-bordered table-inverse">
+    <!-- Titulos De Las Columnas -->
+    <tr>
+      <th>
+        Owner Name
+      </th>
+      <th>
+        Email
+      </th>
+      <th>
+        Model
+      </th>
+      <th class="text-right">
+        Purchase Price
+      </th>
+    </tr>
+
+    <!-- For De Angular Que Recorre Nuestra Lista De Bikes -->
+    <tr *ngFor="let bike of bikes">
+      <td>
+        {{bike.Name}}
+      </td> 
+      <td>
+        {{bike.Email}}
+      </td> 
+      <td>
+        {{bike.Model}}
+      </td> 
+      <td class = "text-left">
+        {{bike.PurchasePrice}}
+      </td> 
+    </tr>
+  </table>
+</div>
