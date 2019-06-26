@@ -28,6 +28,11 @@ export class BikeService {
     return this.http.get('/server/api/v1/bikes');
    }
    
-   
+   //Buscar Una Bicicleta Por Su Id
+   getBike(id:number){
+     return this.http.get('/server/api/v1/bikes/' + id);
+   }
+
+   //Post: Crear Una Bicicleta Con Un Registro De Formulario Angular
 
   }
